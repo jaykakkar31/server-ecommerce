@@ -74,7 +74,9 @@ app.use(errorHandler);
 // 	});
 // }
 
-
+	app.get("/", (req, res) => {
+		res.send("Api is running");
+	});
 
 server.listen(port, () => {
 	console.log(`server listen at http://localhost:${port}`);
