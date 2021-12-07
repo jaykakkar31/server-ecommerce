@@ -62,17 +62,19 @@ app.use(errorHandler);
 // was not available in express in previous version
 
 
-if (process.env.NODE_ENV === "production") {
+// if (process.env.NODE_ENV === "production") {
     
-	app.use(express.static(path.join(__dirname, "/client/build")));
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-	});
-} else {
-	app.get("/", (req, res) => {
-		res.send("Api is running");
-	});
-}
+// 	app.use(express.static(path.join(__dirname, "/client/build")));
+// 	app.get("*", (req, res) => {
+// 		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+// 	});
+// } else {
+// 	app.get("/", (req, res) => {
+// 		res.send("Api is running");
+// 	});
+// }
+
+
 
 server.listen(port, () => {
 	console.log(`server listen at http://localhost:${port}`);
