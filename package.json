@@ -4,11 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon ",
-		"server": "nodemon index",
-		"client": "npm start --prefix client",
-         "heroku-postbuild": "cd client && npm install && npm run build",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"start": "nodemon index.js"
+		
+	
+        
 	},
 	"author": "",
 	"license": "ISC",
