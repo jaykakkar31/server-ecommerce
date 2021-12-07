@@ -79,6 +79,6 @@ app.use(errorHandler);
 
 
 
-server.listen(port, () => {
+app.listen(port, () => {
 	console.log(`server listen at http://localhost:${port}`);
 });
