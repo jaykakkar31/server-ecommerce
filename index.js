@@ -53,6 +53,9 @@ app.get("/api/config/paypal", (req, res) => {
 	// console.log("CALLED");
 	res.status(200).json(process.env.PAYPAL_CLIENT_ID);
 });
+	app.get("/", (req, res) => {
+		res.send("Api is running");
+	});
 //api wrong
 app.use(notFound);
 //Error middleware
@@ -74,9 +77,7 @@ app.use(errorHandler);
 // 	});
 // }
 
-	app.get("/", (req, res) => {
-		res.send("Api is running");
-	});
+
 
 server.listen(port, () => {
 	console.log(`server listen at http://localhost:${port}`);
