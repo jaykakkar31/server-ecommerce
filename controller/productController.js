@@ -42,19 +42,18 @@ exports.deleteProductsById = asyncHandler(async (req, res) => {
 });
 
 exports.createProduct = asyncHandler(async (req, res) => {
+    console.log(req.body);
 	const product = await new Product({
-		name: "iPhone 12 Pro 256GB Memory",
-		image: "/images/phone.jpg",
-		description:
-			"Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
-		brand: "Apple",
+		name: req.body.name,
+		image: req.body.image,
+		description:req.body.description,
+		brand: req.body.brand,
 		user: req.user._id,
-		category: "Electronics",
-		price: 599.99,
-		countInStock: 7,
-		rating: 4.0,
-		numReviews: 8,
+		category: req.body.category,
+		price: req.body.price,
+		countInStock: req.body.countInStock,
 	});
+    console.log(product);
 	if (product) {
 		await product.save();
 		res.json(product);
@@ -120,7 +119,7 @@ exports.createProductReview = asyncHandler(async (req, res) => {
 exports.getTopProducts = asyncHandler(async (req, res) => {
     //-1 for descending
 	const products = await Product.find({}).sort({ rating: -1 }).limit(3);
-	console.log(products);
+	
 
 	res.json(products);
 });
